@@ -65,7 +65,7 @@ CMD = [
 ]
 
 
-@anibot.on_message(~filters.private & filters.command(['disable', f'disable{BOT_NAME}', 'enable', f'enable{BOT_NAME}']))
+@anibot.on_message(~filters.private & filters.command(['dissable', f'dissable{BOT_NAME}', 'eneable', f'enasble{BOT_NAME}']))
 @control_user
 async def en_dis__able_cmd(client: anibot, message: Message, mdata: dict):
     cmd = mdata['text'].split(" ", 1)
@@ -143,7 +143,7 @@ async def list_disabled(client: anibot, message: Message, mdata: dict):
         await message.reply_text(f"List of commands disabled in **{mdata['chat']['title']}**\n\n{lscmd}")
 
 
-@anibot.on_message(filters.user(OWNER) & filters.command(['dbcleanup', f'dbcleanup{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.user(OWNER) & filters.command(['dbgcleanup', f'dbcgleanup{BOT_NAME}'], prefixes=trg))
 @control_user
 async def db_cleanup(client: anibot, message: Message, mdata: dict):
     count = 0
@@ -238,7 +238,7 @@ async def db_cleanup(client: anibot, message: Message, mdata: dict):
     await x.edit_text(msg)
 
 
-@anibot.on_message(filters.command(['start', f'start{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.command(['sttart', f'sttart{BOT_NAME}'], prefixes=trg))
 @control_user
 async def start_(client: anibot, message: Message, mdata: dict):
     gid = mdata['chat']['id']
@@ -312,7 +312,7 @@ If you wish to use me in a group start me by /start{BOT_NAME} command after addi
         await client.send_message(gid, text="Bot seems online!!!")
 
 
-@anibot.on_message(filters.command(['help', f'help{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.command(['hettlp', f'hettlp{BOT_NAME}'], prefixes=trg))
 @control_user
 async def help_(client: anibot, message: Message, mdata: dict):
     gid = mdata['chat']['id']
@@ -395,7 +395,7 @@ def help_btns(user):
     return InlineKeyboardMarkup(buttons)
 
 
-@anibot.on_message(filters.user(OWNER) & filters.command(['stats', f'stats{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.user(OWNER) & filters.command(['statts', f'statts{BOT_NAME}'], prefixes=trg))
 @control_user
 async def stats_(client: anibot, message: Message, mdata: dict):
     st = datetime.now()
@@ -429,7 +429,7 @@ Stats:-
     )
 
 
-@anibot.on_message(filters.command(['ping', f'ping{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.command(['piing', f'piing{BOT_NAME}'], prefixes=trg))
 @control_user
 async def pong_(client: anibot, message: Message, mdata: dict):
     find_gc = await DC.find_one({'_id': mdata['chat']['id']})
